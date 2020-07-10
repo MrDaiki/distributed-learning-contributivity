@@ -6,6 +6,7 @@ Functions for model training and evaluation (single-partner and multi-partner ca
 import os
 from timeit import default_timer as timer
 import pickle
+import tensorflow as tf
 import keras
 from keras.backend.tensorflow_backend import clear_session
 from keras.callbacks import EarlyStopping
@@ -114,6 +115,8 @@ class MultiPartnerLearning:
         """Return the score on test data of a final aggregated model trained in a federated way on each partner"""
 
         start = timer()
+
+        clear_session()
 
         partners_list = self.partners_list
         partners_count = self.partners_count
