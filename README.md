@@ -69,9 +69,17 @@ Finally, with given scenarios and multi-partner learning approaches, we can addr
     n_repeats: 5
     scenario_params_list:
      - dataset_name:
+<<<<<<< HEAD
          - 'mnist'
          - 'cifar10'
        partners_count:
+=======
+       'mnist':
+        - 'init'
+       'cifar10':
+        - 'init'
+       partners_count: 
+>>>>>>> 22844f2... Update the Readme file
          - 3
        amounts_per_partner:
          - [0.4, 0.3, 0.3]
@@ -144,9 +152,9 @@ Example: `n_repeats: 2`
 #### Scenario-level parameters
 
 ##### Choice of dataset
-
 `dataset_name`: `'mnist'` (default), `'cifar10'` or `'titanic'`
-MNIST, CIFAR10 and Titanic are currently supported. They come with their associated modules in `/datasets` for loading data, pre-processing inputs, and define a model architecture.
+MNIST, CIFAR10 and Titanic are currently supported. They come with their associated modules in `/datasets` for loading data, pre-processing inputs, and define a model architecture.\
+For each dataset, it is possible to provide a path to model weights learned from a previous coalition. Use `'random_initialization'` if you want a random initialization. 
 
 **Note on validation and test datasets**:  
 - The dataset modules must provide separated train and test sets (referred to as global train set and global test set).
