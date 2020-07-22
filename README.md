@@ -75,9 +75,9 @@ Finally, with given scenarios and multi-partner learning approaches, we can addr
        partners_count:
 =======
        'mnist':
-        - 'init'
+        - 'random_initialization'
        'cifar10':
-        - 'init'
+        - 'random_initialization'
        partners_count: 
 >>>>>>> 22844f2... Update the Readme file
          - 3
