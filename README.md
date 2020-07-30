@@ -154,7 +154,32 @@ Example: `n_repeats: 2`
 ##### Choice of dataset
 `dataset_name`: `'mnist'` (default), `'cifar10'` or `'titanic'`
 MNIST, CIFAR10 and Titanic are currently supported. They come with their associated modules in `/datasets` for loading data, pre-processing inputs, and define a model architecture.\
-For each dataset, it is possible to provide a path to model weights learned from a previous coalition. Use `'random_initialization'` if you want a random initialization. 
+For each dataset, it is possible to provide a path to model weights learned from a previous coalition. Use `'random_initialization'` if you want a random initialization or an empty value as in one of the two following syntaxes:
+
+```
+scenario_params_list:
+ - dataset_name:
+    'mnist':
+    'cifar10':
+```
+
+``` 
+scenario_params_list:
+ - dataset_name:
+    - 'mnist'
+    - 'cifar10'
+```
+
+Please, note that if you want to specify a path to saved weights and launch the same scenario with a random initialization, you must specify it in the list of initialization.
+
+```
+scenario_params_list:
+ - dataset_name:
+    'mnist':
+     - 'random_initialization'
+     - path_to_saved_weights
+    'cifar10':
+```
 
 **Note on validation and test datasets**:  
 - The dataset modules must provide separated train and test sets (referred to as global train set and global test set).
@@ -162,7 +187,6 @@ For each dataset, it is possible to provide a path to model weights learned from
 In the multi-partner learning computations, the global validation set is used for early stopping and the global test set is used for performance evaluation.
 - The global train set is split amongst partner (according to the scenario configuration) to populate the partner's local datasets.
 - For each partner, the local dataset is split into separated train, validation and test sets. Currently, the local validation and test set are not used, but they are available for further developments of multi-partner learning and contributivity measurement approaches.
-- 
 
 `dataset_proportion`: `float` (default: `1`)
 This argument allows you to make computation on a sub-dataset of the provided datasets.
