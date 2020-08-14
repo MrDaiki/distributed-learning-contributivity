@@ -74,7 +74,7 @@ def main():
                     n_repeat=i+1
                 )
 
-                run_scenario(current_scenario)
+                scenario.run_scenario(current_scenario)
 
                 # Write results to CSV file
                 df_results = current_scenario.to_dataframe()
