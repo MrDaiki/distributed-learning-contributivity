@@ -18,6 +18,8 @@ import random
 from dataset import Dataset
 import constants
 from partner import Partner
+import multi_partner_learning
+import contributivity
 
 
 class Scenario:
