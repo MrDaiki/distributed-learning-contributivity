@@ -7,10 +7,10 @@ with open("requirements.txt", "r") as fh:
     requirements = fh.read()
 
 setuptools.setup(
-    name="pkg-test-distributed-learning-contributivity",
-    version="0.0.5",
-    author="Aygalic",
-    author_email="aygalic.jara-mikolajczak@substra.org",
+    name="subtest",
+    version="0.0.3",
+    author="SubstraFoundation",
+    author_email="hello@substra.org",
     description="A distributed learning contributivity package",
     long_description=long_description,
     long_description_content_type="text/markdown",
